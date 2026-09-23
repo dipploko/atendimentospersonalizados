@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Auto Escola Manoel Clark | Centro de Formação de Condutores MC LTDA</title>
+
+    <meta name="description"
+          content="Auto Escola Manoel Clark - Centro de Formação de Condutores MC LTDA, em Linhares - ES. Consulte informações cadastrais e dados de contato.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0b5ed7;
+            --primary-dark: #084298;
+            --secondary: #ffc107;
+            --dark: #172033;
+            --gray: #667085;
+            --light: #f5f8fc;
+            --white: #ffffff;
+            --border: #e4e7ec;
+            --success: #198754;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--dark);
+            background: var(--light);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 18px 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,.15);
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--secondary);
+            color: var(--dark);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo h1 {
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 12px;
+            opacity: .85;
+            font-weight: normal;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: bold;
+            opacity: .95;
+            transition: .2s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        /* HERO */
+        .hero {
+            background:
+                linear-gradient(rgba(8,66,152,.9), rgba(11,94,215,.88)),
+                radial-gradient(circle at top right, #4dabf7, transparent 40%);
+            color: white;
+            padding: 90px 6%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero h2 {
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 650px;
+            opacity: .93;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,.15);
+            border: 1px solid rgba(255,255,255,.25);
+            padding: 8px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .hero-card {
+            background: white;
+            color: var(--dark);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,.2);
+        }
+
+        .hero-card h3 {
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .hero-card-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 14px;
+        }
+
+        .hero-card-item:last-child {
+            border-bottom: none;
+        }
+
+        .hero-card-item strong {
+            text-align: right;
+        }
+
+        /* CONTENT */
+        section {
+            padding: 75px 6%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 28px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 25px rgba(16,24,40,.06);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: #e8f1ff;
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+            font-size: 19px;
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* TABLE */
+        .data-box {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 25px rgba(16,24,40,.05);
+        }
+
+        .data-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            padding: 17px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-row:last-child {
+            border-bottom: none;
+        }
+
+        .data-label {
+            font-weight: bold;
+            color: var(--gray);
+        }
+
+        .data-value {
+            color: var(--dark);
+        }
+
+        /* STATUS */
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            background: var(--success);
+            border-radius: 50%;
+        }
+
+        /* ADDRESS */
+        .address-section {
+            background: white;
+        }
+
+        .address-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .address-card,
+        .map-card {
+            background: var(--light);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px;
+        }
+
+        .address-card h3,
+        .map-card h3 {
+            margin-bottom: 20px;
+        }
+
+        .address {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .map-card {
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(rgba(11,94,215,.08), rgba(11,94,215,.08)),
+                repeating-linear-gradient(
+                    45deg,
+                    #f4f7fb,
+                    #f4f7fb 10px,
+                    #edf1f7 10px,
+                    #edf1f7 20px
+                );
+        }
+
+        .map-card-content {
+            max-width: 350px;
+        }
+
+        .map-card .map-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .map-button {
+            display: inline-block;
+            margin-top: 18px;
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .map-button:hover {
+            background: var(--primary-dark);
+        }
+
+        /* CONTACT */
+        .contact-box {
+            background: linear-gradient(135deg, #084298, #0b5ed7);
+            color: white;
+            border-radius: 22px;
+            padding: 45px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-box h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .contact-box p {
+            opacity: .9;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,.1);
+            padding: 16px 18px;
+            border-radius: 10px;
+        }
+
+        .contact-item strong {
+            display: block;
+            font-size: 12px;
+            opacity: .75;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #101828;
+            color: white;
+            padding: 40px 6%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        footer p {
+            color: #98a2b3;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            nav {
+                display: none;
+            }
+
+            .hero-content,
+            .address-grid,
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 65px 6%;
+            }
+
+            .hero-card {
+                margin-top: 10px;
+            }
+
+            .data-row {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 500px) {
+            section {
+                padding: 55px 5%;
+            }
+
+            .hero h2 {
+                font-size: 38px;
+            }
+
+            .contact-box {
+                padding: 30px 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="navbar">
+
+            <div class="logo">
+                <div class="logo-icon">🚗</div>
+
+                <div>
+                    <h1>Auto Escola Manoel Clark</h1>
+                    <span>Centro de Formação de Condutores MC LTDA</span>
+                </div>
+            </div>
+
+            <nav>
+                <a href="#inicio">Início</a>
+                <a href="#empresa">Empresa</a>
+                <a href="#endereco">Endereço</a>
+                <a href="#contato">Contato</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+
+        <div class="hero-content">
+
+            <div>
+                <span class="badge">CENTRO DE FORMAÇÃO DE CONDUTORES</span>
+
+                <h2>Auto Escola<br>Manoel Clark</h2>
+
+                <p>
+                    Centro de Formação de Condutores MC LTDA,
+                    localizado no Centro de Linhares, Espírito Santo.
+                </p>
+            </div>
+
+            <div class="hero-card">
+
+                <h3>Informações principais</h3>
+
+                <div class="hero-card-item">
+                    <span>CNPJ</span>
+                    <strong>38.799.350/0001-32</strong>
+                </div>
+
+                <div class="hero-card-item">
+                    <span>Nome fantasia</span>
+                    <strong>Auto Escola Manoel Clark</strong>
+                </div>
+
+                <div class="hero-card-item">
+                    <span>Situação</span>
+                    <strong class="status">
+                        <span class="status-dot"></span>
+                        Ativa
+                    </strong>
+                </div>
+
+                <div class="hero-card-item">
+                    <span>Porte</span>
+                    <strong>Micro Empresa</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EMPRESA -->
+    <section id="empresa">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Dados da Empresa</h2>
+                <p>Informações cadastrais do Centro de Formação de Condutores.</p>
+            </div>
+
+            <div class="data-box">
+
+                <div class="data-row">
+                    <div class="data-label">Razão Social</div>
+                    <div class="data-value">
+                        Centro de Formacao de Condutores Mc LTDA
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Nome Fantasia</div>
+                    <div class="data-value">
+                        Auto Escola Manoel Clark
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">CNPJ</div>
+                    <div class="data-value">
+                        38.799.350/0001-32
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">CNPJ sem pontuação</div>
+                    <div class="data-value">
+                        38799350000132
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Data de abertura</div>
+                    <div class="data-value">
+                        23/09/2020
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Porte</div>
+                    <div class="data-value">
+                        Micro Empresa
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Natureza Jurídica</div>
+                    <div class="data-value">
+                        Sociedade Empresária Limitada
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Opção pelo MEI</div>
+                    <div class="data-value">
+                        Não
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Opção pelo Simples</div>
+                    <div class="data-value">
+                        Não
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Período no Simples</div>
+                    <div class="data-value">
+                        23/09/2020 a 31/12/2023
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Capital Social</div>
+                    <div class="data-value">
+                        R$ 120.000,00
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Tipo</div>
+                    <div class="data-value">
+                        Matriz
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Situação Cadastral</div>
+                    <div class="data-value">
+                        <span class="status">
+                            <span class="status-dot"></span>
+                            Ativa
+                        </span>
+                    </div>
+                </div>
+
+                <div class="data-row">
+                    <div class="data-label">Data da Situação</div>
+                    <div class="data-value">
+                        23/09/2020
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DESTAQUES -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Informações Gerais</h2>
+                <p>Resumo dos principais dados cadastrais.</p>
+            </div>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-icon">🏢</div>
+                    <h3>Empresa</h3>
+                    <p>
+                        Sociedade Empresária Limitada,
+                        registrada como matriz.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3>Capital Social</h3>
+                    <p>
+                        Capital social informado de
+                        R$ 120.000,00.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">✅</div>
+                    <h3>Situação</h3>
+                    <p>
+                        Situação cadastral informada como
+                        ativa.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ENDEREÇO -->
+    <section class="address-section" id="endereco">
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Localização</h2>
+                <p>Endereço informado para a empresa.</p>
+            </div>
+
+            <div class="address-grid">
+
+                <div class="address-card">
+
+                    <h3>📍 Endereço</h3>
+
+                    <div class="address">
+                        <strong>Auto Escola Manoel Clark</strong><br>
+                        Avenida Vitória, 1667<br>
+                        Centro<br>
+                        Linhares - ES<br>
+                        CEP 29900-085
+                    </div>
+
+                </div>
+
+                <div class="map-card">
+
+                    <div class="map-card-content">
+
+                        <div class="map-icon">📍</div>
+
+                        <h3>Auto Escola Manoel Clark</h3>
+
+                        <p>
+                            Avenida Vitória, 1667<br>
+                            Centro — Linhares/ES
+                        </p>
+
+                        <a
+                            class="map-button"
+                            href="https://www.google.com/maps/search/?api=1&query=Avenida+Vitoria+1667+Centro+Linhares+ES"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            Abrir no Google Maps
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTATO -->
+    <section id="contato">
+
+        <div class="container">
+
+            <div class="contact-box">
+
+                <div>
+                    <h2>Entre em contato</h2>
+
+                    <p>
+                        Utilize os dados de contato informados
+                        para localizar a Auto Escola Manoel Clark.
+                    </p>
+                </div>
+
+                <div class="contact-list">
+
+                    <div class="contact-item">
+                        <strong>E-mail</strong>
+                        cf****@****.com
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Telefone</strong>
+                        (27) 988****-****
+                    </div>
+
+                    <div class="contact-item">
+                        <strong>Endereço</strong>
+                        Avenida Vitória, 1667 — Centro,
+                        Linhares/ES
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CORRESPONDÊNCIA -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Dados para Correspondência</h2>
+                <p>Endereço completo informado para correspondências.</p>
+            </div>
+
+            <div class="card" style="max-width: 700px; margin: auto; text-align: center;">
+
+                <h3>Auto Escola Manoel Clark</h3>
+
+                <p style="margin-top: 12px;">
+                    Centro de Formacao de Condutores Mc LTDA<br>
+                    Avenida Vitoria, 1667<br>
+                    Centro<br>
+                    Linhares - ES<br>
+                    29900-085
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <strong>Auto Escola Manoel Clark</strong>
+                <p>
+                    Centro de Formação de Condutores MC LTDA
+                </p>
+            </div>
+
+            <div>
+                <p>
+                    CNPJ: 38.799.350/0001-32
+                </p>
+
+                <p>
+                    Linhares — Espírito Santo
+                </p>
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
